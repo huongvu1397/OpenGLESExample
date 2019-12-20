@@ -1,0 +1,15 @@
+*Create A Basic OpenGL ES application*
+
+Solution : Create a GLSurfaceView and a custom Renderer that will draw a spinning cube.
+Yêu cầu : Đã có kiến thức OpenGL cơ bản.
+Android hỗ trợ đồ họa 3D thông qua OpenGL ES API.
+
+Đầu tiên chúng ta sẽ tạo một Activity mới, và cần GLSurfaceView và Renderer
+
+Phương thức onSurfaceChanged() và onDrawFrame() tương đương với GLUT glutReshapeFunc() và glutDisplayFunc().
+        onSurfaceChanged - Gọi khi bề mặt thay đổi kích thước, ví dụ như khi điện thoại chuyển chế độ ngang và dọc
+        onDrawFrame - Gọi ở mọi khung hình và đó là nơi mà chúng ta vẽ khối.
+
+The Cube uses two FloatBuffer objects to store vertex and color information and a ByteBuffer to store the face indexes.
+In order for the buffers to work it is important to set their order according to the endianness of the platform, using the order() method.
+Once the buffers have been filled with the values from the arrays, the internal cursor must be restored to the beginning of the data using buffer.position(0).
